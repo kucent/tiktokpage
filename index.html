@@ -1,0 +1,1246 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Categories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Contact Card Styles - 商务风格 */
+        .contact-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid #e1e5eb;
+        }
+
+        .contact-card h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 22px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-item:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .contact-info {
+            text-align: left;
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            color: #718096;
+            margin-bottom: 2px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        /* Time Display */
+        .time-section {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid #e1e5eb;
+        }
+
+        .time-display {
+            font-size: 15px;
+            color: #4a5568;
+            margin: 6px 0;
+        }
+
+        .time-display strong {
+            color: #2c3e50;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            border: 1px solid #e1e5eb;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-size: 22px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .category-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .category-item {
+            width: 150px;
+            text-align: center;
+        }
+
+        .category-image {
+            width: 150px;
+            background-color: #f1f5f9;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 500;
+            font-size: 13px;
+            color: #2d3748;
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s ease;
+            line-height: 1.4;
+        }
+
+        .category-name:hover {
+            color: #4a5568;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-container {
+                gap: 25px;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .categories-section {
+                padding: 20px;
+            }
+            
+            .category-grid {
+                gap: 15px;
+            }
+            
+            .category-item,
+            .category-image {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .category-grid {
+                gap: 12px;
+            }
+            
+            .category-item,
+            .category-image {
+                width: 100px;
+            }
+            
+            .category-name {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+
+    <!-- Contact Section -->
+    <div class="contact-card">
+        <h1>Contact Information</h1>
+        <a href="mailto:kucent@hotmail.com" class="contact-item">
+            <div class="icon">📧</div>
+            <div class="contact-info">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">kucent@hotmail.com</span>
+            </div>
+        </a>
+        <a href="https://wa.me/8618077483453" target="_blank" class="contact-item">
+            <div class="icon">💬</div>
+            <div class="contact-info">
+                <span class="contact-label">WhatsApp</span>
+                <span class="contact-value">+86 18077483453</span>
+            </div>
+        </a>
+        <a href="https://t.me/+8618077483453" target="_blank" class="contact-item">
+            <div class="icon">✈️</div>
+            <div class="contact-info">
+                <span class="contact-label">Telegram</span>
+                <span class="contact-value">+86 18077483453</span>
+            </div>
+        </a>
+    </div>
+
+        <!-- Time Section -->
+        <div class="time-section">
+            <div class="time-display" id="datetime"></div>
+            <div class="time-display" id="workingtime">Working Time: <strong>8:00-22:00</strong></div>
+        </div>
+
+        <script>
+            function getChinaTime() {
+                const utcTime = new Date().getTime();
+                const chinaTime = new Date(utcTime + 8 * 60 * 60 * 1000);
+                return chinaTime;
+            }
+    
+            function formatChinaTime() {
+                const time = getChinaTime();
+                return time.toISOString().slice(0, 19).replace('T', ' ');
+            }
+    
+            setInterval(() => {
+                document.getElementById("datetime").innerHTML = `GMT+8 Time Zone: <strong>${formatChinaTime()}</strong>`;
+            }, 1000);
+        </script>
+    
+        <!-- Categories Section -->
+        <div class="categories-section">
+            <h2 class="section-title">Product Categories</h2>
+            <div class="category-grid">
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3723264">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/3e41f02a/small.png" 
+                             alt="GUIDE | 使用指导" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3723264" class="category-name">GUIDE | 使用指导</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4024708">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/3535a909/small.jpg" 
+                             alt="NEW ARRIVALS | 近期上新" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4024708" class="category-name">NEW ARRIVALS | 近期上新</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3455063">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/6e8068e4/small.png" 
+                             alt="Adidas | 阿迪达斯" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3455063" class="category-name">Adidas | 阿迪达斯</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4024642">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/d1ce9291/small.png" 
+                             alt="AIR JORDAN | 乔丹" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4024642" class="category-name">AIR JORDAN | 乔丹</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028410">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/b111f6a9/small.jpg" 
+                             alt="ALEXANDER MCQEEN | 麦昆" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028410" class="category-name">ALEXANDER MCQEEN | 麦昆</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028363">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/568db78c/small.jpg" 
+                             alt="AMIRI" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028363" class="category-name">AMIRI</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028418">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/e65739fc/small.png" 
+                             alt="ARMANI | 阿玛尼" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028418" class="category-name">ARMANI | 阿玛尼</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028264">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/f989539b/small.png" 
+                             alt="ASICS | 阿斯克斯/亚瑟士" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028264" class="category-name">ASICS | 阿斯克斯/亚瑟士</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4738956">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/acd4effe/small.png" 
+                             alt="AUTRY" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4738956" class="category-name">AUTRY</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4039994">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/5f0beec5/small.jpg" 
+                             alt="BAG" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4039994" class="category-name">BAG</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4042709">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/c7d279d8/small.png" 
+                             alt="BAPESTA" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4042709" class="category-name">BAPESTA</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3699422">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/ae5d52b7/small.png" 
+                             alt="BALENCIAGA | 巴黎世家" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3699422" class="category-name">BALENCIAGA | 巴黎世家</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4159324">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/c31e3b72/small.jpg" 
+                             alt="BOSS" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4159324" class="category-name">BOSS</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4159319">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/78e7ac2b/small.jpg" 
+                             alt="BURBURRY | 巴宝莉" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4159319" class="category-name">BURBURRY | 巴宝莉</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4024861">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/a91da140/small.png" 
+                             alt="CAT" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4024861" class="category-name">CAT</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028379">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/06309127/small.jpg" 
+                             alt="CELINE | 赛琳" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028379" class="category-name">CELINE | 赛琳</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028402">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/15409cbf/small.png" 
+                             alt="CHANEL | 香奈儿" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028402" class="category-name">CHANEL | 香奈儿</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4369187">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/ba3916e7/small.png" 
+                             alt="CLOTHES" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4369187" class="category-name">CLOTHES</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028417">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/89dc8d41/small.png" 
+                             alt="CL Christian Louboutin" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028417" class="category-name">CL Christian Louboutin</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028206">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/7e374ad0/small.png" 
+                             alt="COLUMBIA | 哥伦比亚" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028206" class="category-name">COLUMBIA | 哥伦比亚</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3456808">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/9c5fca85/small.png" 
+                             alt="CONVERSE | 匡威" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3456808" class="category-name">CONVERSE | 匡威</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4916872">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/4930551e/small.png" 
+                             alt="CROCS" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4916872" class="category-name">CROCS</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028398">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/23375951/small.jpg" 
+                             alt="DIOR | 迪奥" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028398" class="category-name">DIOR | 迪奥</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028411">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/4286bb64/small.png" 
+                             alt="DG Dolce&amp;Gabbana" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028411" class="category-name">DG Dolce&amp;Gabbana</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4059930">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/9ecaff74/small.png" 
+                             alt="EastPacificTrade" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4059930" class="category-name">EastPacificTrade</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028412">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/729bc773/small.jpg" 
+                             alt="FENDI | 芬迪" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028412" class="category-name">FENDI | 芬迪</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4043242">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/02301416/small.jpg" 
+                             alt="FILA | 斐乐" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4043242" class="category-name">FILA | 斐乐</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4761375">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/5aa27425/small.jpg" 
+                             alt="FOOTBALL JERSEY TRACKSUITS" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4761375" class="category-name">FOOTBALL JERSEY TRACKSUITS</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028416">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/90bd0ea5/small.png" 
+                             alt="GIVENCY | 纪梵希" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028416" class="category-name">GIVENCY | 纪梵希</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4065930">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/a517ab0e/small.jpg" 
+                             alt="GOLDEN GOOSE" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4065930" class="category-name">GOLDEN GOOSE</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3700181">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/76dbdc83/small.png" 
+                             alt="GUCCI | 古驰" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3700181" class="category-name">GUCCI | 古驰</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4150644">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/764a9963/small.png" 
+                             alt="HERMES | 爱马仕" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4150644" class="category-name">HERMES | 爱马仕</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4114683">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/b364a0bb/small.png" 
+                             alt="HOKA" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4114683" class="category-name">HOKA</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4366432">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/c31e3b72/small.jpg" 
+                             alt="HUGO BOSS" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4366432" class="category-name">HUGO BOSS</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028419">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/3e7e20a3/small.png" 
+                             alt="Jimmy Choo" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028419" class="category-name">Jimmy Choo</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028420">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/51e7db4d/small.png" 
+                             alt="KENZO" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028420" class="category-name">KENZO</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028341">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/04c1db88/small.jpg" 
+                             alt="LV LOUIS VUITTON | 路易威登" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028341" class="category-name">LV LOUIS VUITTON | 路易威登</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4043239">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/e0da0fc7/small.png" 
+                             alt="MARTENS | 马丁靴" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4043239" class="category-name">MARTENS | 马丁靴</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4158620">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/a958156f/small.jpg" 
+                             alt="MIZUNO | 美津浓" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4158620" class="category-name">MIZUNO | 美津浓</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028260">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/d7870d1c/small.png" 
+                             alt="MLB" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028260" class="category-name">MLB</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3455023">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/f358e9bd/small.png" 
+                             alt="New balance | 新百伦/纽巴伦" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3455023" class="category-name">New balance | 新百伦/纽巴伦</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4024640">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/f4523ef3/small.png" 
+                             alt="Nike | 耐克" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4024640" class="category-name">Nike | 耐克</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028413">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/91dd3f86/small.png" 
+                             alt="OFF-WHITE" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028413" class="category-name">OFF-WHITE</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4042710">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/f1577e8e/small.png" 
+                             alt="OTZ" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4042710" class="category-name">OTZ</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4941286">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/d987cdbe/small.png" 
+                             alt="ON CLOUD" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4941286" class="category-name">ON CLOUD</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4059929">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/8eefe3a3/small.png" 
+                             alt="PALLADIUM | 帕拉丁" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4059929" class="category-name">PALLADIUM | 帕拉丁</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4159327">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/11a99dec/small.png" 
+                             alt="PHILIP PLEIN" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4159327" class="category-name">PHILIP PLEIN</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028414">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/e0a6cc56/small.png" 
+                             alt="PRADA | 普拉达" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028414" class="category-name">PRADA | 普拉达</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4067305">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/b9a697e5/small.png" 
+                             alt="PREMIATA" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4067305" class="category-name">PREMIATA</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3456810">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/11c88ce8/small.png" 
+                             alt="PUMA | 彪马" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3456810" class="category-name">PUMA | 彪马</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4059921">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/e2090be6/small.png" 
+                             alt="REEBOK | 锐步" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4059921" class="category-name">REEBOK | 锐步</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4177811">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/550d1a87/small.png" 
+                             alt="SAUCONY" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4177811" class="category-name">SAUCONY</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4046733">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/66e09764/small.png" 
+                             alt="SKECHERS | 斯凯奇" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4046733" class="category-name">SKECHERS | 斯凯奇</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4177838">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/e0c0127c/small.jpg" 
+                             alt="SLIPPERS" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4177838" class="category-name">SLIPPERS</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4067311">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/6bbc2550/small.png" 
+                             alt="STARTER" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4067311" class="category-name">STARTER</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4916968">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/1d3a01f6/small.jpg" 
+                             alt="SUN GLASSES" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4916968" class="category-name">SUN GLASSES</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028361">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/dc989209/small.png" 
+                             alt="THE NORTH FACE | 北面/北脸" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028361" class="category-name">THE NORTH FACE | 北面/北脸</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028359">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/7df7245e/small.jpg" 
+                             alt="TIMBERLAND | 天伯伦" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028359" class="category-name">TIMBERLAND | 天伯伦</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3700182">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/5999faf2/small.png" 
+                             alt="VERSACE | 范思哲" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3700182" class="category-name">VERSACE | 范思哲</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3730129">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/571cfdbb/small.png" 
+                             alt="SALOMON| 萨乐蒙" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3730129" class="category-name">SALOMON| 萨乐蒙</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4028265">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/5f894328/small.png" 
+                             alt="UGG" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4028265" class="category-name">UGG</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3455062">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/36129b57/small.png" 
+                             alt="UNDER ARMOUR| 安德玛" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3455062" class="category-name">UNDER ARMOUR| 安德玛</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4917457">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/eadee254/small.png" 
+                             alt="UNDERWEAR" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4917457" class="category-name">UNDERWEAR</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4159329">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/56928e26/small.png" 
+                             alt="VALENTINO | 华伦天奴" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4159329" class="category-name">VALENTINO | 华伦天奴</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/3699419">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/f8103b5a/small.jpg" 
+                             alt="VANS | 万斯" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/3699419" class="category-name">VANS | 万斯</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4851298">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/bf4769a1/small.png" 
+                             alt="video" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4851298" class="category-name">video</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4916955">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/61f6de56/small.jpg" 
+                             alt="WATCH" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4916955" class="category-name">WATCH</a>
+            </div>
+
+            <div class="category-item">
+                <a href="https://kucent.x.yupoo.com/categories/4159328">
+                    <div class="category-image">
+                        <!-- 请将此处替换为实际图片URL -->                        
+                        <img src="http://pic.yupoo.com/kucent/0beaea8c/small.png" 
+                             alt="Y3" 
+                             width="150" 
+                             style="display: block;" 
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
+                    </div>
+                </a>
+                <a href="https://kucent.x.yupoo.com/categories/4159328" class="category-name">Y3</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
