@@ -209,6 +209,18 @@
             .category-image {
                 width: 120px;
             }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -228,38 +240,172 @@
             .category-name {
                 font-size: 12px;
             }
+            
+            .info-section {
+                padding: 20px 15px;
+            }
+        }
+        
+        /* 锚点导航样式 */
+        .anchor-nav {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .anchor-nav h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .anchor-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .anchor-link {
+            background: #e9ecef;
+            color: #495057;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .anchor-link:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* 底部信息区域 */
+        .info-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            font-size: 24px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-block {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .info-block h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .info-block p {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .info-block ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-block li {
+            color: #6c757d;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .info-block a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .info-block a:hover {
+            text-decoration: underline;
+        }
+
+        /* 回到顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="page-container">
 
-    <!-- Contact Section -->
-    <div class="contact-card">
-        <h1>Contact Information</h1>
-        <a href="mailto:kucent@hotmail.com" class="contact-item">
-            <div class="icon">📧</div>
-            <div class="contact-info">
-                <span class="contact-label">Email</span>
-                <span class="contact-value">kucent@hotmail.com</span>
-            </div>
-        </a>
-        <a href="https://wa.me/8618077483453" target="_blank" class="contact-item">
-            <div class="icon">💬</div>
-            <div class="contact-info">
-                <span class="contact-label">WhatsApp</span>
-                <span class="contact-value">+86 18077483453</span>
-            </div>
-        </a>
-        <a href="https://t.me/+8618077483453" target="_blank" class="contact-item">
-            <div class="icon">✈️</div>
-            <div class="contact-info">
-                <span class="contact-label">Telegram</span>
-                <span class="contact-value">+86 18077483453</span>
-            </div>
-        </a>
-    </div>
-
+        <!-- Contact Section -->
+        <div class="contact-card">
+            <h1>Contact Information</h1>
+            <a href="mailto:kucent@hotmail.com" class="contact-item">
+                <div class="icon">📧</div>
+                <div class="contact-info">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">kucent@hotmail.com</span>
+                </div>
+            </a>
+            <a href="https://wa.me/8618077483453" target="_blank" class="contact-item">
+                <div class="icon">💬</div>
+                <div class="contact-info">
+                    <span class="contact-label">WhatsApp</span>
+                    <span class="contact-value">+86 18077483453</span>
+                </div>
+            </a>
+            <a href="https://t.me/+8618077483453" target="_blank" class="contact-item">
+                <div class="icon">✈️</div>
+                <div class="contact-info">
+                    <span class="contact-label">Telegram</span>
+                    <span class="contact-value">+86 18077483453</span>
+                </div>
+            </a>
+        </div>
+    
         <!-- Time Section -->
         <div class="time-section">
             <div class="time-display" id="datetime"></div>
@@ -282,17 +428,30 @@
                 document.getElementById("datetime").innerHTML = `GMT+8 Time Zone: <strong>${formatChinaTime()}</strong>`;
             }, 1000);
         </script>
-    
-        <!-- Categories Section -->
+
+<!-- 锚点导航 -->
+    <div class="anchor-nav">
+        <h2>Information</h2>
+        <div class="anchor-links">
+            <a href="#visiting-code" class="anchor-link">Visiting Code</a>
+            <a href="#ways-to-buy" class="anchor-link">Ways to Buy</a>
+            <a href="#shipping" class="anchor-link">Shipping</a>
+            <a href="#drop-shipping" class="anchor-link">Drop Shipping</a>
+            <a href="#about-us" class="anchor-link">About Us</a>
+            <a href="#other-links" class="anchor-link">Other Links</a>
+        </div>
+    </div>
+
+            <!-- Categories Section -->
         <div class="categories-section">
             <h2 class="section-title">Product Categories</h2>
             <div class="category-grid">
-
+    
             <div class="category-item">
                 <a href="https://kucent.x.yupoo.com/categories/3723264">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/3e41f02a/small.png" 
+                        <img src="./BRANDS/GUIDE.png" 
                              alt="GUIDE | 使用指导" 
                              width="150" 
                              style="display: block;" 
@@ -306,7 +465,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4024708">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/3535a909/small.jpg" 
+                        <img src="./BRANDS/NEW ARRIVALS.jpg" 
                              alt="NEW ARRIVALS | 近期上新" 
                              width="150" 
                              style="display: block;" 
@@ -320,7 +479,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3455063">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/6e8068e4/small.png" 
+                        <img src="./BRANDS/Adidas.png" 
                              alt="Adidas | 阿迪达斯" 
                              width="150" 
                              style="display: block;" 
@@ -334,7 +493,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4024642">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/d1ce9291/small.png" 
+                        <img src="./BRANDS/AIR JORDAN.png" 
                              alt="AIR JORDAN | 乔丹" 
                              width="150" 
                              style="display: block;" 
@@ -348,7 +507,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028410">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/b111f6a9/small.jpg" 
+                        <img src="./BRANDS/ALEXANDER MCQEEN.jpg" 
                              alt="ALEXANDER MCQEEN | 麦昆" 
                              width="150" 
                              style="display: block;" 
@@ -362,7 +521,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028363">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/568db78c/small.jpg" 
+                        <img src="./BRANDS/AMIRI.jpg" 
                              alt="AMIRI" 
                              width="150" 
                              style="display: block;" 
@@ -376,7 +535,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028418">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/e65739fc/small.png" 
+                        <img src="./BRANDS/ARMANI.png" 
                              alt="ARMANI | 阿玛尼" 
                              width="150" 
                              style="display: block;" 
@@ -390,7 +549,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028264">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/f989539b/small.png" 
+                        <img src="./BRANDS/ASICS.png" 
                              alt="ASICS | 阿斯克斯/亚瑟士" 
                              width="150" 
                              style="display: block;" 
@@ -404,7 +563,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4738956">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/acd4effe/small.png" 
+                        <img src="./BRANDS/AUTRY.png" 
                              alt="AUTRY" 
                              width="150" 
                              style="display: block;" 
@@ -418,7 +577,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4039994">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/5f0beec5/small.jpg" 
+                        <img src="./BRANDS/BAG.jpg" 
                              alt="BAG" 
                              width="150" 
                              style="display: block;" 
@@ -432,7 +591,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4042709">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/c7d279d8/small.png" 
+                        <img src="./BRANDS/BAPESTA.png" 
                              alt="BAPESTA" 
                              width="150" 
                              style="display: block;" 
@@ -446,7 +605,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3699422">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/ae5d52b7/small.png" 
+                        <img src="./BRANDS/BALENCIAGA.png" 
                              alt="BALENCIAGA | 巴黎世家" 
                              width="150" 
                              style="display: block;" 
@@ -460,7 +619,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4159324">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/c31e3b72/small.jpg" 
+                        <img src="./BRANDS/BOSS.jpg" 
                              alt="BOSS" 
                              width="150" 
                              style="display: block;" 
@@ -474,7 +633,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4159319">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/78e7ac2b/small.jpg" 
+                        <img src="./BRANDS/BURBURRY.jpg" 
                              alt="BURBURRY | 巴宝莉" 
                              width="150" 
                              style="display: block;" 
@@ -488,7 +647,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4024861">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/a91da140/small.png" 
+                        <img src="./BRANDS/CAT.png" 
                              alt="CAT" 
                              width="150" 
                              style="display: block;" 
@@ -502,7 +661,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028379">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/06309127/small.jpg" 
+                        <img src="./BRANDS/CELINE.jpg" 
                              alt="CELINE | 赛琳" 
                              width="150" 
                              style="display: block;" 
@@ -516,7 +675,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028402">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/15409cbf/small.png" 
+                        <img src="./BRANDS/CHANEL.png" 
                              alt="CHANEL | 香奈儿" 
                              width="150" 
                              style="display: block;" 
@@ -530,7 +689,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4369187">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/ba3916e7/small.png" 
+                        <img src="./BRANDS/CLOTHES.png" 
                              alt="CLOTHES" 
                              width="150" 
                              style="display: block;" 
@@ -544,7 +703,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028417">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/89dc8d41/small.png" 
+                        <img src="./BRANDS/CL Christian Louboutin.png" 
                              alt="CL Christian Louboutin" 
                              width="150" 
                              style="display: block;" 
@@ -558,7 +717,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028206">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/7e374ad0/small.png" 
+                        <img src="./BRANDS/COLUMBIA.png" 
                              alt="COLUMBIA | 哥伦比亚" 
                              width="150" 
                              style="display: block;" 
@@ -572,7 +731,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3456808">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/9c5fca85/small.png" 
+                        <img src="./BRANDS/CONVERSE.png" 
                              alt="CONVERSE | 匡威" 
                              width="150" 
                              style="display: block;" 
@@ -586,7 +745,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4916872">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/4930551e/small.png" 
+                        <img src="./BRANDS/CROCS.png" 
                              alt="CROCS" 
                              width="150" 
                              style="display: block;" 
@@ -600,7 +759,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028398">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/23375951/small.jpg" 
+                        <img src="./BRANDS/DIOR.jpg" 
                              alt="DIOR | 迪奥" 
                              width="150" 
                              style="display: block;" 
@@ -614,21 +773,21 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028411">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/4286bb64/small.png" 
-                             alt="DG Dolce&amp;Gabbana" 
+                        <img src="<img src="https://picsum.photos/150/150?random={category['id']}"" 
+                             alt="DG Dolce Gabbana" 
                              width="150" 
                              style="display: block;" 
                              onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f1f5f9';">
                     </div>
                 </a>
-                <a href="https://kucent.x.yupoo.com/categories/4028411" class="category-name">DG Dolce&amp;Gabbana</a>
+                <a href="https://kucent.x.yupoo.com/categories/4028411" class="category-name">DG Dolce Gabbana</a>
             </div>
 
             <div class="category-item">
                 <a href="https://kucent.x.yupoo.com/categories/4059930">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/9ecaff74/small.png" 
+                        <img src="./BRANDS/EastPacificTrade.png" 
                              alt="EastPacificTrade" 
                              width="150" 
                              style="display: block;" 
@@ -642,7 +801,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028412">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/729bc773/small.jpg" 
+                        <img src="./BRANDS/FENDI.jpg" 
                              alt="FENDI | 芬迪" 
                              width="150" 
                              style="display: block;" 
@@ -656,7 +815,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4043242">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/02301416/small.jpg" 
+                        <img src="./BRANDS/FILA.jpg" 
                              alt="FILA | 斐乐" 
                              width="150" 
                              style="display: block;" 
@@ -670,7 +829,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4761375">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/5aa27425/small.jpg" 
+                        <img src="./BRANDS/FOOTBALL JERSEY.jpg" 
                              alt="FOOTBALL JERSEY TRACKSUITS" 
                              width="150" 
                              style="display: block;" 
@@ -684,7 +843,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028416">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/90bd0ea5/small.png" 
+                        <img src="./BRANDS/GIVENCY.png" 
                              alt="GIVENCY | 纪梵希" 
                              width="150" 
                              style="display: block;" 
@@ -698,7 +857,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4065930">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/a517ab0e/small.jpg" 
+                        <img src="./BRANDS/GOLDEN GOOSE.jpg" 
                              alt="GOLDEN GOOSE" 
                              width="150" 
                              style="display: block;" 
@@ -712,7 +871,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3700181">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/76dbdc83/small.png" 
+                        <img src="./BRANDS/GUCCI.png" 
                              alt="GUCCI | 古驰" 
                              width="150" 
                              style="display: block;" 
@@ -726,7 +885,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4150644">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/764a9963/small.png" 
+                        <img src="./BRANDS/HERMES.png" 
                              alt="HERMES | 爱马仕" 
                              width="150" 
                              style="display: block;" 
@@ -740,7 +899,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4114683">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/b364a0bb/small.png" 
+                        <img src="./BRANDS/HOKA.png" 
                              alt="HOKA" 
                              width="150" 
                              style="display: block;" 
@@ -754,7 +913,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4366432">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/c31e3b72/small.jpg" 
+                        <img src="./BRANDS/BOSS.jpg" 
                              alt="HUGO BOSS" 
                              width="150" 
                              style="display: block;" 
@@ -768,7 +927,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028419">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/3e7e20a3/small.png" 
+                        <img src="./BRANDS/Jimmy Choo.png" 
                              alt="Jimmy Choo" 
                              width="150" 
                              style="display: block;" 
@@ -782,7 +941,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028420">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/51e7db4d/small.png" 
+                        <img src="./BRANDS/KENZO.png" 
                              alt="KENZO" 
                              width="150" 
                              style="display: block;" 
@@ -796,7 +955,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028341">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/04c1db88/small.jpg" 
+                        <img src="./BRANDS/LV.jpg" 
                              alt="LV LOUIS VUITTON | 路易威登" 
                              width="150" 
                              style="display: block;" 
@@ -810,7 +969,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4043239">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/e0da0fc7/small.png" 
+                        <img src="./BRANDS/MARTENS.png" 
                              alt="MARTENS | 马丁靴" 
                              width="150" 
                              style="display: block;" 
@@ -824,7 +983,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4158620">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/a958156f/small.jpg" 
+                        <img src="./BRANDS/MIZUNO.jpg" 
                              alt="MIZUNO | 美津浓" 
                              width="150" 
                              style="display: block;" 
@@ -838,7 +997,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028260">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/d7870d1c/small.png" 
+                        <img src="./BRANDS/MLB.png" 
                              alt="MLB" 
                              width="150" 
                              style="display: block;" 
@@ -852,7 +1011,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3455023">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/f358e9bd/small.png" 
+                        <img src="./BRANDS/New balance.png" 
                              alt="New balance | 新百伦/纽巴伦" 
                              width="150" 
                              style="display: block;" 
@@ -866,7 +1025,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4024640">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/f4523ef3/small.png" 
+                        <img src="./BRANDS/Nike.png" 
                              alt="Nike | 耐克" 
                              width="150" 
                              style="display: block;" 
@@ -880,7 +1039,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028413">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/91dd3f86/small.png" 
+                        <img src="./BRANDS/OFF-WHITE.png" 
                              alt="OFF-WHITE" 
                              width="150" 
                              style="display: block;" 
@@ -894,7 +1053,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4042710">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/f1577e8e/small.png" 
+                        <img src="./BRANDS/OTZ.png" 
                              alt="OTZ" 
                              width="150" 
                              style="display: block;" 
@@ -908,7 +1067,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4941286">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/d987cdbe/small.png" 
+                        <img src="./BRANDS/ON CLOUD.png" 
                              alt="ON CLOUD" 
                              width="150" 
                              style="display: block;" 
@@ -922,7 +1081,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4059929">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/8eefe3a3/small.png" 
+                        <img src="./BRANDS/PALLADIUM.png" 
                              alt="PALLADIUM | 帕拉丁" 
                              width="150" 
                              style="display: block;" 
@@ -936,7 +1095,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4159327">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/11a99dec/small.png" 
+                        <img src="./BRANDS/PHILIP PLEIN.png" 
                              alt="PHILIP PLEIN" 
                              width="150" 
                              style="display: block;" 
@@ -950,7 +1109,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028414">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/e0a6cc56/small.png" 
+                        <img src="./BRANDS/PRADA.png" 
                              alt="PRADA | 普拉达" 
                              width="150" 
                              style="display: block;" 
@@ -964,7 +1123,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4067305">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/b9a697e5/small.png" 
+                        <img src="./BRANDS/PREMIATA.png" 
                              alt="PREMIATA" 
                              width="150" 
                              style="display: block;" 
@@ -978,7 +1137,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3456810">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/11c88ce8/small.png" 
+                        <img src="./BRANDS/PUMA.png" 
                              alt="PUMA | 彪马" 
                              width="150" 
                              style="display: block;" 
@@ -992,7 +1151,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4059921">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/e2090be6/small.png" 
+                        <img src="./BRANDS/REEBOK.png" 
                              alt="REEBOK | 锐步" 
                              width="150" 
                              style="display: block;" 
@@ -1006,7 +1165,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4177811">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/550d1a87/small.png" 
+                        <img src="./BRANDS/SAUCONY.png" 
                              alt="SAUCONY" 
                              width="150" 
                              style="display: block;" 
@@ -1020,7 +1179,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4046733">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/66e09764/small.png" 
+                        <img src="./BRANDS/SKECHERS.png" 
                              alt="SKECHERS | 斯凯奇" 
                              width="150" 
                              style="display: block;" 
@@ -1034,7 +1193,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4177838">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/e0c0127c/small.jpg" 
+                        <img src="./BRANDS/SLIPPERS.jpg" 
                              alt="SLIPPERS" 
                              width="150" 
                              style="display: block;" 
@@ -1048,7 +1207,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4067311">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/6bbc2550/small.png" 
+                        <img src="./BRANDS/STARTER.png" 
                              alt="STARTER" 
                              width="150" 
                              style="display: block;" 
@@ -1062,7 +1221,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4916968">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/1d3a01f6/small.jpg" 
+                        <img src="./BRANDS/SUN GLASSES.jpg" 
                              alt="SUN GLASSES" 
                              width="150" 
                              style="display: block;" 
@@ -1076,7 +1235,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028361">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/dc989209/small.png" 
+                        <img src="./BRANDS/THE NORTH FACE.png" 
                              alt="THE NORTH FACE | 北面/北脸" 
                              width="150" 
                              style="display: block;" 
@@ -1090,7 +1249,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028359">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/7df7245e/small.jpg" 
+                        <img src="./BRANDS/TIMBERLAND.jpg" 
                              alt="TIMBERLAND | 天伯伦" 
                              width="150" 
                              style="display: block;" 
@@ -1104,7 +1263,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3700182">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/5999faf2/small.png" 
+                        <img src="./BRANDS/VERSACE.png" 
                              alt="VERSACE | 范思哲" 
                              width="150" 
                              style="display: block;" 
@@ -1118,7 +1277,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3730129">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/571cfdbb/small.png" 
+                        <img src="./BRANDS/SALOMON.png" 
                              alt="SALOMON| 萨乐蒙" 
                              width="150" 
                              style="display: block;" 
@@ -1132,7 +1291,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4028265">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/5f894328/small.png" 
+                        <img src="./BRANDS/UGG.png" 
                              alt="UGG" 
                              width="150" 
                              style="display: block;" 
@@ -1146,7 +1305,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3455062">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/36129b57/small.png" 
+                        <img src="./BRANDS/UNDER ARMOUR.png" 
                              alt="UNDER ARMOUR| 安德玛" 
                              width="150" 
                              style="display: block;" 
@@ -1160,7 +1319,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4917457">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/eadee254/small.png" 
+                        <img src="./BRANDS/UNDERWEAR.png" 
                              alt="UNDERWEAR" 
                              width="150" 
                              style="display: block;" 
@@ -1174,7 +1333,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4159329">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/56928e26/small.png" 
+                        <img src="./BRANDS/VALENTINO.png" 
                              alt="VALENTINO | 华伦天奴" 
                              width="150" 
                              style="display: block;" 
@@ -1188,7 +1347,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/3699419">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/f8103b5a/small.jpg" 
+                        <img src="./BRANDS/VANS.jpg" 
                              alt="VANS | 万斯" 
                              width="150" 
                              style="display: block;" 
@@ -1202,7 +1361,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4851298">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/bf4769a1/small.png" 
+                        <img src="./BRANDS/video.png" 
                              alt="video" 
                              width="150" 
                              style="display: block;" 
@@ -1216,7 +1375,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4916955">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/61f6de56/small.jpg" 
+                        <img src="./BRANDS/WATCH.jpg" 
                              alt="WATCH" 
                              width="150" 
                              style="display: block;" 
@@ -1230,7 +1389,7 @@
                 <a href="https://kucent.x.yupoo.com/categories/4159328">
                     <div class="category-image">
                         <!-- 请将此处替换为实际图片URL -->                        
-                        <img src="http://pic.yupoo.com/kucent/0beaea8c/small.png" 
+                        <img src="./BRANDS/Y3.png" 
                              alt="Y3" 
                              width="150" 
                              style="display: block;" 
@@ -1242,5 +1401,141 @@
 
         </div>
     </div>
+    <!-- 底部信息区域 -->
+    <div class="info-section">
+        <div class="info-grid">
+            <!-- Visiting Code -->
+            <div class="info-block" id="visiting-code">
+                <h3>About Visiting Code</h3>
+                <p>Please contact the WhatsApp above for the code.</p>
+            </div>
+
+            <!-- Ways to Buy -->
+            <div class="info-block" id="ways-to-buy">
+                <h3>Ways to Buy</h3>
+                <p>Buy directly: Payment PayPal, USDT</p>
+                <p>Buy with the help of a third party logistics company (Pandabuy, Cssbuy, Superbuy) in our Weidian</p>
+            </div>
+
+            <!-- Shipping -->
+            <div class="info-block" id="shipping">
+                <h3>About Shipping</h3>
+                <p>Shipping takes:</p>
+                <ul>
+                    <li>Europe: 10-20 days</li>
+                    <li>Australia: 15-30 days</li>
+                    <li>The USA: 15-30 days</li>
+                    <li>South America: about 30 days</li>
+                    <li>Middle East: 15-30 days</li>
+                </ul>
+            </div>
+
+            <!-- Drop Shipping -->
+            <div class="info-block" id="drop-shipping">
+                <h3>About Drop Shipping</h3>
+                <p>If you are a retailer, you can place order and provide us the final receiver's address.</p>
+                <p>We will ship to that address directly.</p>
+                <p>Your clients will always be yours, we don't contact them.</p>
+            </div>
+
+            <!-- About Us -->
+            <div class="info-block" id="about-us">
+                <h3>About Us</h3>
+                <p>We Sell Luxury Shoes, Sneakers, Clothes, Street wears, Bags, Watches, Belts, Sun Glasses, Football Jerseys/Shoes, Basketball Jerseys/Shoes, Kids shoes, Slippers, Sandals.</p>
+                <p>We have been popular seller for 10 years, trusted seller in FB groups.</p>
+                <p>Quality levels available: Authentic quality, OG quality, PK quality, original quality</p>
+                <p>NIKE: Acg, AF1 air force, sb dunks, nike dunks, air max 1, air max 90, air max2016, air max 2017, 2018, 2019, zoom, winflo, blazers, air max 97, air max98, air max 270, Pegasus 36 37 38 39 40, air vapormax, air more uptempo, M2K tekno, air max Scorpion FK, Dbreak, LDwaffle, and More</p>
+                <p>Adidas: yeezy350, Yeezy 750, yeezy 450, yeezy 700, 4D, NMD, smith, Samba, Superstar, Forum, Ozweego, Gazelle, PU, UB, ultraboost, Campus, Day Jogger, Bad Bunny, Nite Jogger and more.</p>
+                <p>Air Jordan: AJ1 jordan1, AJ2 jordan2, AJ3 jordan3, AJ4 jordan 4, AJ5 jordan 5, AJ6 jordan 6, AJ7 jordan 7, AJ10 jordan 10, AJ11 jordan 11, AJ12 jordan12, AJ13 jordan 13, AJ14 jordan 14, AJ jordan 31 and more.</p>
+                <p>New balance: nb 998, nb 327, nb 1906, nb 550, nb 2002, nb 574, nb 5740, nb 990, nb 9060 and more.</p>
+                <p>Clothes: jackets, Coats, vests, Tracksuits, Jeans, Denim, Tshirts, Tops, Down jackets, Shorts, Swimwear, Hoodies, Sweathshirt, NBA jerseys, Soccer jerseys, football Jerseys, Pants, Sweatpants, Joggers, hats, gloves, scarves, beanies, caps, headbands, glasses, belts, socks, accessories from luxury brand bags like the North face, Stone island, Canada Goose, Thom Browne, nike, adidas, yeezy, Cartier, LV, Dior, Tiffany, Balenciaga, Gucci, Bvlgari, YSL, Fendi, Chrome Hearts, DG, Versace, Hermes, Valentine, Prada, Celine, Goro's, Dinh Van, Qeelin, Daniel Wellington, Boucheron, CK, MK, coach, Hermes, kenzo, Bally, Givenchy, Ferragamo, Off-white, Burberry, PP, ESSENTIALS, Boss, Armani, BV, Loewe, Zegna, Coach, MCM, CL and more.</p>
+                <p>Luxury bags, Backpacks, clutch bag and Wallets with original quality, top quality, aaa quality, cheap quality, LV, Dior, Tiffany, Balenciaga, Gucci, Bvlgari, YSL, Fendi, Chrome Hearts, DG, Versace, Hermes, Valentine, Prada, Celine, Goro's, Dinh Van, Qeelin, Daniel Wellington, Boucheron, CK, MK, coach, Hermes, kenzo, Bally, Givenchy, Ferragamo, Off-white, Burberry, PP, ESSENTIALS, Boss, Armani, BV, Loewe, Zegna, Coach, MCM, CL and more.</p>
+                <p>Watches: ROLEX, IWC, OMEGA, LONGINES, PATEK PHILIPPE, PATEK PHILIPPE, AP, Vacheron Constantin, Jaeger-LeCoultre, CARTIER, Blancpain, Breguet, Vercace, Breitling, HUBLOT, Chopard, Panerai, ZENITH, Carl F. Bucherer, Girard-Perregaux, Chanel, Armani, BVLGARI, Casio and More.</p>
+                <p>If you can't find the products in my catalogues. contact me!</p>
+            </div>
+
+            <!-- Other Links -->
+            <div class="info-block" id="other-links">
+                <h3>Other Links of Products</h3>
+                <p><strong>SHOES</strong></p>
+                <p><a href="https://15280075256.x.yupoo.com/albums" target="_blank">https://15280075256.x.yupoo.com/albums</a></p>
+                <p><a href="https://xiongfengxieye99.x.yupoo.com/albums" target="_blank">https://xiongfengxieye99.x.yupoo.com/albums</a></p>
+                <p><a href="https://280093721.x.yupoo.com/albums" target="_blank">https://280093721.x.yupoo.com/albums</a></p>
+                <p><a href="https://x.yupoo.com/photos/daluhumaoyi/albums" target="_blank">https://x.yupoo.com/photos/daluhumaoyi/albums</a></p>
+                <p><a href="https://0594665.x.yupoo.com/albums" target="_blank">https://0594665.x.yupoo.com/albums</a></p>
+                <p><a href="https://x.yupoo.com/photos/zf913066999/albums" target="_blank">https://x.yupoo.com/photos/zf913066999/albums</a></p>
+                <p><a href="https://lth-best-shoes.x.yupoo.com/albums" target="_blank">https://lth-best-shoes.x.yupoo.com/albums</a></p>
+                <p><a href="https://x.yupoo.com/photos/forester-sports/albums" target="_blank">https://x.yupoo.com/photos/forester-sports/albums</a></p>
+                <p><a href="https://waimaoshoes.x.yupoo.com/" target="_blank">https://waimaoshoes.x.yupoo.com/</a></p>
+                <p><a href="https://x.yupoo.com/photos/kaimeirui/albums" target="_blank">https://x.yupoo.com/photos/kaimeirui/albums</a></p>
+                <p><a href="http://x.yupoo.com/photos/happydate/albums" target="_blank">http://x.yupoo.com/photos/happydate/albums</a></p>
+                <p><a href="https://deshengxing.x.yupoo.com/albums" target="_blank">https://deshengxing.x.yupoo.com/albums</a></p>
+                <p><a href="https://x.yupoo.com/photos/shaoweishoes/albums" target="_blank">https://x.yupoo.com/photos/shaoweishoes/albums</a></p>
+                <p><a href="https://b2btrade.x.yupoo.com/" target="_blank">https://b2btrade.x.yupoo.com/</a></p>
+                <p><a href="http://15205960899.v.yupoo.com/" target="_blank">http://15205960899.v.yupoo.com/</a></p>
+                <p><a href="https://x.yupoo.com/photos/31318420/albums" target="_blank">https://x.yupoo.com/photos/31318420/albums</a></p>
+                <p><a href="https://x.yupoo.com/photos/2953876326/albums" target="_blank">https://x.yupoo.com/photos/2953876326/albums</a></p>
+                <p><a href="https://add820603.x.yupoo.com/" target="_blank">https://add820603.x.yupoo.com/</a></p>
+                <p><a href="https://x.yupoo.com/photos/youyijia/albums" target="_blank">https://x.yupoo.com/photos/youyijia/albums</a></p>
+                <p><a href="https://x.yupoo.com/photos/lgp8910/albums" target="_blank">https://x.yupoo.com/photos/lgp8910/albums</a></p>
+                <p><a href="https://huasheng2020.x.yupoo.com/" target="_blank">https://huasheng2020.x.yupoo.com/</a></p>
+                
+                <p><strong>FOOT BALL SHOES</strong></p>
+                <p><a href="http://x.yupoo.com/photos/yehecheng/albums?tab=gallery" target="_blank">http://x.yupoo.com/photos/yehecheng/albums?tab=gallery</a></p>
+                
+                <p><strong>KID'S SHOES</strong></p>
+                <p><a href="https://x.yupoo.com/photos/775180006/albums" target="_blank">https://x.yupoo.com/photos/775180006/albums</a></p>
+                
+                <p><strong>JERSEY</strong></p>
+                <p><a href="https://zhan15080114388.x.yupoo.com" target="_blank">https://zhan15080114388.x.yupoo.com</a> (NFL)</p>
+                <p><a href="https://quanqiu-trade.x.yupoo.com/albums" target="_blank">https://quanqiu-trade.x.yupoo.com/albums</a> (FOOT BALL)</p>
+                <p><a href="https://kucent.x.yupoo.com/categories/4761375" target="_blank">https://kucent.x.yupoo.com/categories/4761375</a> (football, code:112233)</p>
+                
+                <p><strong>LUXURY</strong></p>
+                <p><a href="https://jiachenxieye.x.yupoo.com/" target="_blank">https://jiachenxieye.x.yupoo.com/</a></p>
+                <p><a href="https://1685443922.x.yupoo.com" target="_blank">https://1685443922.x.yupoo.com</a> (men shoes, code: six 6)</p>
+                <p><a href="https://3597757500.x.yupoo.com" target="_blank">https://3597757500.x.yupoo.com</a> (women shoes, code: six 6)</p>
+                
+                <p><strong>Clothes</strong></p>
+                <p><a href="http://sgd007.x.yupoo.com/" target="_blank">http://sgd007.x.yupoo.com/</a> code: eight 8</p>
+                <p><a href="https://cpdk8888.x.yupoo.com/" target="_blank">https://cpdk8888.x.yupoo.com/</a> password 112233</p>
+                
+                <p><strong>Jewelry</strong></p>
+                <p><a href="https://1518790747.x.yupoo.com" target="_blank">https://1518790747.x.yupoo.com</a> (code: six 6)</p>
+                
+                <p><strong>Wallet</strong></p>
+                <p><a href="https://3088546275.x.yupoo.com/" target="_blank">https://3088546275.x.yupoo.com/</a> (code: six 6)</p>
+                
+                <p><strong>Bags and belt</strong></p>
+                <p><a href="https://1820785267.x.yupoo.com/" target="_blank">https://1820785267.x.yupoo.com/</a> (password 666666)</p>
+                <p><a href="https://kucent.x.yupoo.com/categories/4039994" target="_blank">https://kucent.x.yupoo.com/categories/4039994</a> (password 112233)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <a href="#" class="back-to-top" id="backToTop">↑Top</a>
+    
+    <script>
+        // 回到顶部按钮功能
+        const backToTopButton = document.getElementById("backToTop");
+        
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add("show");
+            } else {
+                backToTopButton.classList.remove("show");
+            }
+        });
+
+        backToTopButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });        
+    </script>
+
 </body>
 </html>
